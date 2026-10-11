@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>R26-IT-141 | ML Based Student Performance Prediction System</title>
+  <meta name="description" content="SLIIT research project R26-IT-141: a machine learning based decision-support system that predicts student performance, explains predictions and prioritises academic support.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="#home" class="brand">
+      <span class="brand-mark">R26</span>
+      <span class="brand-text">Student Performance<br><small>Prediction System</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#domain">Domain</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#documents">Documents</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="project-id">Research project R26-IT-141 &middot; SLIIT Faculty of Computing</p>
+      <h1>Seeing academic difficulty before the exam does.</h1>
+      <p class="lead">
+        A machine learning based decision-support system that combines examination results,
+        attendance and LMS activity to predict each student's academic performance, explain
+        the reasons behind every prediction and turn them into prioritised academic support.
+      </p>
+      <div class="hero-actions">
+        <a href="#domain" class="btn btn-primary">Explore the research</a>
+        <a href="#contact" class="btn btn-ghost">Contact the team</a>
+      </div>
+    </div>
+
+    <!-- Signature visual: an early-warning trajectory -->
+    <figure class="trajectory" aria-label="Example of a predicted score falling below the risk threshold in week 6">
+      <div class="trajectory-head">
+        <span>Predicted final score, student S2007</span>
+        <span class="tag tag-high">High risk</span>
+      </div>
+      <svg viewBox="0 0 420 220" role="img">
+        <g class="grid">
+          <line x1="40" y1="30" x2="400" y2="30"/><line x1="40" y1="80" x2="400" y2="80"/>
+          <line x1="40" y1="130" x2="400" y2="130"/><line x1="40" y1="180" x2="400" y2="180"/>
+        </g>
+        <g class="axis-labels">
+          <text x="30" y="34">80</text><text x="30" y="84">65</text><text x="30" y="134">50</text><text x="30" y="184">35</text>
+          <text x="60" y="205">W1</text><text x="130" y="205">W3</text><text x="200" y="205">W5</text><text x="270" y="205">W7</text><text x="340" y="205">W9</text>
+        </g>
+        <line class="threshold" x1="40" y1="115" x2="400" y2="115"/>
+        <text class="threshold-label" x="398" y="108">risk threshold</text>
+        <polyline class="actual" points="62,62 97,70 132,74 167,90 202,104 237,128"/>
+        <polyline class="forecast" points="237,128 272,140 307,146 342,152 377,156"/>
+        <circle class="flag" cx="237" cy="128" r="7"/>
+        <text class="flag-label" x="228" y="152" text-anchor="end">Flagged in week 6</text>
+      </svg>
+      <figcaption>Illustrative example: the model forecasts the end-of-module score from engagement and assessment data, so support can start weeks before the final examination.</figcaption>
+    </figure>
+  </div>
+
+  <div class="container pillars">
+    <article>
+      <h3>Predict</h3>
+      <p>Regression models estimate a continuous final score, GPA, grade and risk level from multi-source data.</p>
+    </article>
+    <article>
+      <h3>Understand</h3>
+      <p>Behaviour clustering and explainable AI show which learning patterns and factors drive each prediction.</p>
+    </article>
+    <article>
+      <h3>Act</h3>
+      <p>A policy-aware engine ranks students and assigns support actions, owners, follow-up dates and escalation paths.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= DOMAIN ================= -->
+<section id="domain" class="section">
+  <div class="container">
+    <h2>Domain</h2>
+    <p class="section-intro">The research background gathered through our literature survey, and how the proposed system addresses it.</p>
+
+    <div class="tabs" role="tablist" aria-label="Domain sections">
+      <button role="tab" aria-selected="true" aria-controls="tab-lit" id="t-lit">Literature survey</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-gap" id="t-gap">Research gap</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-prob" id="t-prob">Research problem</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-obj" id="t-obj">Research objectives</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-meth" id="t-meth">Methodology</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-tech" id="t-tech">Technologies used</button>
+    </div>
+
+    <div class="tab-panel" id="tab-lit" role="tabpanel" aria-labelledby="t-lit">
+      <div class="two-col">
+        <div>
+          <h3>Educational data mining and learning analytics</h3>
+          <p>Educational data mining and learning analytics use data from student records and learning platforms to understand learners and improve the environments in which they learn. Predicting academic performance is one of the most established tasks in both fields because it enables early, targeted support [1], [2].</p>
+          <h3>Engagement as a predictor</h3>
+          <p>Studies of LMS and virtual learning environment logs show that behavioural engagement, such as logins, resource use, forum activity and timely submission, predicts outcomes well before final assessments [3], [4].</p>
+        </div>
+        <div>
+          <h3>Machine learning techniques</h3>
+          <p>Decision Trees, Random Forests, Gradient Boosting and neural networks are widely used to predict grades and pass/fail outcomes. Tree ensembles perform particularly well on tabular student data [5], [6].</p>
+          <h3>Explainability and action</h3>
+          <p>Model-agnostic methods such as SHAP and LIME attribute each prediction to its input features, which is important for educator trust. Early-warning systems such as Course Signals showed that predictions are most valuable when they lead to timely intervention [7], [8].</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-gap" role="tabpanel" aria-labelledby="t-gap" hidden>
+      <div class="gap-grid">
+        <article><h3>Single-source data</h3><p>Most existing systems analyse academic and behavioural data in isolation, limiting the accuracy and completeness of predictions.</p></article>
+        <article><h3>Black-box predictions</h3><p>Many prediction models offer little transparency about the factors behind a predicted outcome, which reduces educator trust.</p></article>
+        <article><h3>Descriptive dashboards only</h3><p>LMS dashboards show logins and submissions but do not predict outcomes or identify at-risk students early.</p></article>
+        <article><h3>No path from prediction to action</h3><p>Current solutions rarely define urgency, responsible staff, follow-up timing and escalation for each at-risk student.</p></article>
+      </div>
+      <p class="note">Few systems are designed for the specific characteristics of Sri Lankan higher education, where traditional end-of-semester evaluation is still dominant.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-prob" role="tabpanel" aria-labelledby="t-prob" hidden>
+      <blockquote class="problem">
+        How can academic, attendance and learning-behaviour data be combined to predict student performance accurately and early, explain the reasons behind each prediction, and convert those insights into prioritised academic support?
+      </blockquote>
+      <p>Sri Lankan institutions hold the data needed to anticipate academic difficulty, but they mainly rely on end-semester examinations and manual reviews. Students who are struggling are often identified only after the opportunity to help them has passed.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-obj" role="tabpanel" aria-labelledby="t-obj" hidden>
+      <p class="main-objective"><strong>Main objective:</strong> Develop a machine learning based decision-support system that predicts student academic performance, identifies at-risk students early, explains prediction logic, and supports proactive academic response planning using data-driven and policy-aware insights.</p>
+      <div class="objective-grid">
+        <article><h3>Performance prediction</h3><p>Develop and evaluate regression models that predict student performance from integrated academic records and learning-behaviour indicators.</p></article>
+        <article><h3>Intervention prioritisation</h3><p>Design a policy-aware engine that ranks, assigns and schedules support workflows for at-risk students.</p></article>
+        <article><h3>Explainable AI</h3><p>Integrate SHAP and LIME into the prediction models to improve transparency, interpretability and educator trust.</p></article>
+        <article><h3>Behaviour clustering</h3><p>Identify hidden learning-behaviour patterns with unsupervised learning to support targeted academic planning.</p></article>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-meth" role="tabpanel" aria-labelledby="t-meth" hidden>
+      <p>The system follows a layered architecture: data gathering, data processing, model development, integration and visualisation. Academic results, attendance records and LMS activity logs are cleaned and transformed into engineered features, which feed four research components integrated through a central decision-support engine.</p>
+      <figure class="wide-figure">
+        <img src="assets/images/system-architecture.png" alt="Overall system architecture showing data sources, shared data layer, four research components and the decision-support engine" loading="lazy">
+        <figcaption>Overall system architecture</figcaption>
+      </figure>
+      <figure class="wide-figure">
+        <img src="assets/images/data-pipeline.png" alt="Data preprocessing workflow from raw dataset to processed dataset" loading="lazy">
+        <figcaption>Data preprocessing workflow</figcaption>
+      </figure>
+    </div>
+
+    <div class="tab-panel" id="tab-tech" role="tabpanel" aria-labelledby="t-tech" hidden>
+      <div class="tech-groups">
+        <div><h3>Machine learning</h3><ul class="chips"><li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>pandas</li><li>NumPy</li></ul></div>
+        <div><h3>Explainability and clustering</h3><ul class="chips"><li>SHAP</li><li>LIME</li><li>K-Means</li><li>Hierarchical clustering</li><li>DBSCAN</li></ul></div>
+        <div><h3>Backend</h3><ul class="chips"><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Alembic</li><li>JWT authentication</li></ul></div>
+        <div><h3>Frontend and deployment</h3><ul class="chips"><li>React</li><li>Vite</li><li>HTML / CSS</li><li>Docker</li><li>GitHub</li><li>Vercel</li></ul></div>
+        <div><h3>Dataset</h3><ul class="chips"><li>Open University Learning Analytics Dataset (OULAD)</li></ul></div>
+      </div>
+    </div>
+
+    <details class="references">
+      <summary>References</summary>
+      <ol>
+        <li>G. Siemens and P. Long, "Penetrating the fog: Analytics in learning and education," <em>EDUCAUSE Review</em>, vol. 46, no. 5, pp. 30–40, 2011.</li>
+        <li>C. Romero and S. Ventura, "Educational data mining and learning analytics: An updated survey," <em>WIREs Data Mining and Knowledge Discovery</em>, vol. 10, no. 3, e1355, 2020.</li>
+        <li>L. P. Macfadyen and S. Dawson, "Mining LMS data to develop an 'early warning system' for educators," <em>Computers &amp; Education</em>, vol. 54, no. 2, pp. 588–599, 2010.</li>
+        <li>J. Kuzilek, M. Hlosta, and Z. Zdrahal, "Open University Learning Analytics dataset," <em>Scientific Data</em>, vol. 4, 170171, 2017.</li>
+        <li>P. Cortez and A. Silva, "Using data mining to predict secondary school student performance," in <em>Proc. FUBUTEC 2008</em>, pp. 5–12.</li>
+        <li>L. Grinsztajn, E. Oyallon, and G. Varoquaux, "Why do tree-based models still outperform deep learning on typical tabular data?," in <em>NeurIPS 2022</em>.</li>
+        <li>S. M. Lundberg and S.-I. Lee, "A unified approach to interpreting model predictions," in <em>NeurIPS 2017</em>, pp. 4765–4774.</li>
+        <li>K. E. Arnold and M. D. Pistilli, "Course Signals at Purdue," in <em>Proc. LAK '12</em>, pp. 267–270.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<!-- ================= MILESTONES ================= -->
+<section id="milestones" class="section section-alt">
+  <div class="container">
+    <h2>Milestones</h2>
+    <p class="section-intro">Assessments in the IT4010 Research Project module. Choose a milestone to see its details.</p>
+
+    <label class="select-label" for="milestone-select">Select a milestone</label>
+    <select id="milestone-select"></select>
+
+    <article class="milestone-card" id="milestone-detail" aria-live="polite"></article>
+
+    <ol class="timeline" id="milestone-timeline"></ol>
+  </div>
+</section>
+
+<!-- ================= DOCUMENTS ================= -->
+<section id="documents" class="section">
+  <div class="container">
+    <h2>Documents</h2>
+    <p class="section-intro">Documents produced during the project. View them online or download a copy; pending items appear here once they are submitted.</p>
+    <div class="doc-grid" id="doc-grid"></div>
+  </div>
+</section>
+
+<!-- ================= PRESENTATIONS ================= -->
+<section id="presentations" class="section section-alt">
+  <div class="container">
+    <h2>Presentations</h2>
+    <p class="section-intro">Slides used in our project presentations.</p>
+    <div class="doc-grid" id="slide-grid"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT US ================= -->
+<section id="about" class="section">
+  <div class="container">
+    <h2>About Us</h2>
+    <p class="section-intro">Final-year BSc (Hons) in Information Technology students at the Sri Lanka Institute of Information Technology.</p>
+
+    <h3 class="sub-head">Supervision</h3>
+    <div class="team-grid supervisors">
+      <article class="person">
+        <div class="avatar" data-initials="SV"></div>
+        <h4>[Supervisor name]</h4>
+        <p class="role">Supervisor</p>
+        <a href="mailto:supervisor@sliit.lk">supervisor@sliit.lk</a>
+      </article>
+      <article class="person">
+        <div class="avatar" data-initials="CS"></div>
+        <h4>[Co-supervisor name]</h4>
+        <p class="role">Co-supervisor</p>
+        <a href="mailto:cosupervisor@sliit.lk">cosupervisor@sliit.lk</a>
+      </article>
+    </div>
+
+    <h3 class="sub-head">Research team</h3>
+    <div class="team-grid">
+      <article class="person">
+        <!-- To use a photo: <img class="avatar-img" src="assets/images/team/it22176356.jpg" alt="Rupasena A.H.D.L.W"> -->
+        <div class="avatar" data-initials="AR"></div>
+        <h4>Rupasena A.H.D.L.W</h4>
+        <p class="reg">IT22176356</p>
+        <p class="component">Student performance prediction using multi-source regression models</p>
+        <a href="mailto:it22176356@my.sliit.lk">it22176356@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <div class="avatar" data-initials="SR"></div>
+        <h4>Rathnayake R.M.S.A.O</h4>
+        <p class="reg">IT22137746</p>
+        <p class="component">Policy-aware academic intervention prioritisation and escalation engine</p>
+        <a href="mailto:it22137746@my.sliit.lk">it22137746@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <div class="avatar" data-initials="VB"></div>
+        <h4>Balasooriya B.A.V.P</h4>
+        <p class="reg">IT22540126</p>
+        <p class="component">Explainable AI for educator trust in performance predictions</p>
+        <a href="mailto:it22540126@my.sliit.lk">it22540126@my.sliit.lk</a>
+      </article>
+      <article class="person">
+        <div class="avatar" data-initials="ST"></div>
+        <h4>Thirakarathna A.K.D.S.N</h4>
+        <p class="reg">IT22905390</p>
+        <p class="component">Learning-behaviour clustering for adaptive academic planning</p>
+        <a href="mailto:it22905390@my.sliit.lk">it22905390@my.sliit.lk</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT US ================= -->
+<section id="contact" class="section section-dark">
+  <div class="container contact-grid">
+    <div>
+      <h2>Contact Us</h2>
+      <p>Questions about the project, collaboration or the dataset? Reach the team through any of these channels.</p>
+      <dl class="contact-list">
+        <dt>Email</dt><dd><a href="mailto:it22176356@my.sliit.lk">it22176356@my.sliit.lk</a></dd>
+        <dt>Phone</dt><dd>+94 7X XXX XXXX</dd>
+        <dt>Address</dt><dd>Sri Lanka Institute of Information Technology,<br>New Kandy Road, Malabe, Sri Lanka</dd>
+      </dl>
+    </div>
+
+    <form class="contact-form" id="contact-form">
+      <h3>Send us an email</h3>
+      <p class="form-hint">This opens your email app with a pre-filled message to the team.</p>
+      <label>Your name<input name="name" required></label>
+      <label>Your email<input name="email" type="email" required></label>
+      <label>Subject
+        <select name="subject">
+          <option>General inquiry about R26-IT-141</option>
+          <option>Collaboration request</option>
+          <option>Question about the dataset or models</option>
+          <option>Feedback on the system</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" rows="5" required></textarea></label>
+      <button class="btn btn-primary" type="submit">Open email</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <p>&copy; <span id="year"></span> R26-IT-141 Research Group, Sri Lanka Institute of Information Technology.</p>
+    <div class="footer-links"><a href="#" data-open-admin>Team upload</a><a href="#home">Back to top</a></div>
+  </div>
+</footer>
+
+<!-- ================= TEAM UPLOAD PANEL ================= -->
+<dialog id="admin-dialog" class="admin-dialog">
+  <div class="admin-head">
+    <h3>Upload a document or slides</h3>
+    <button type="button" id="admin-close" class="link-btn" aria-label="Close">Close</button>
+  </div>
+  <form id="admin-form" class="admin-form">
+    <label>Team password<input name="password" type="password" autocomplete="current-password" required></label>
+    <label>Upload as<select id="admin-target"></select></label>
+    <label>File (PDF, Word or PowerPoint, max 25 MB)<input name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx"></label>
+    <progress id="admin-progress" max="100" value="0" hidden></progress>
+    <button class="btn btn-primary" type="submit">Upload file</button>
+    <p id="admin-msg" class="admin-msg" role="status"></p>
+  </form>
+  <h4>Uploaded files</h4>
+  <ul id="admin-files" class="admin-files"></ul>
+</dialog>
+
+<script src="js/main.js"></script>
+</body>
+</html>
